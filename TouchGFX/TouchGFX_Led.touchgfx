@@ -43,7 +43,19 @@
             "CapPrecision": "Triangle"
           }
         ],
-        "Interactions": []
+        "Interactions": [
+          {
+            "InteractionName": "LED_Control_Clicked",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "buttonWithLabel1"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "buttonClicked"
+            }
+          }
+        ]
       }
     ],
     "CustomContainerDefinitions": [],
