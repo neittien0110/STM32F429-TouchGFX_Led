@@ -1,3 +1,6 @@
 logs
 Debug
 Drivers
+STM32CubeIDE/STM32F429I_DISCO_REV_D01.launch
+STM32CubeIDE/.settings/language.settings.xml
+STM32CubeIDE/.settings/stm32cubeide.project.prefs

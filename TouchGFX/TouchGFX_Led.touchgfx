@@ -3,6 +3,7 @@
     "Screens": [
       {
         "Name": "Screen1",
+        "CanvasBufferSize": 3600,
         "Components": [
           {
             "Type": "ButtonWithLabel",
@@ -25,6 +26,21 @@
             },
             "TextRotation": "0",
             "Preset": "alternate_theme\\presets\\button\\regular\\height_50\\medium_rounded_normal.json"
+          },
+          {
+            "Type": "Circle",
+            "Name": "circle1",
+            "X": 100,
+            "Width": 40,
+            "Height": 40,
+            "Color": {
+              "Red": 255
+            },
+            "CenterX": 20.0,
+            "CenterY": 20.0,
+            "Radius": 20.0,
+            "EndAngle": 360.0,
+            "CapPrecision": "Triangle"
           }
         ],
         "Interactions": []
