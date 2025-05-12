@@ -16,5 +16,8 @@
 5. Thêm hàm sự kiện cho nút bấm.\
    ![Object CallBack Functions](./assets/ObjectCallBackFunctions.png)\
    Ví dụ:\
-   ![Object CallBack Functions](./assets/ObjectCallBack_Onclick.png)
-   Bấm __F4__ để gen code. 
+   ![Object CallBack Functions](./assets/ObjectCallBack_Onclick.png)\
+   Bấm __F4__ để gen code.
+6. Đăng kí hàm sự kiện theo thời gian, để tạo hiệu ứng chuyenr động của quả bóng đỏ.\
+   ![Object CallBack Timer Counttick](./assets/ObjectCallBack_OnTimer.png)
+   Bấm __F4__ để gen code.

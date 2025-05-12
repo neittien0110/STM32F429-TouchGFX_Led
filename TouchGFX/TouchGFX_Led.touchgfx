@@ -54,6 +54,17 @@
               "Type": "ActionCustom",
               "FunctionName": "buttonClicked"
             }
+          },
+          {
+            "InteractionName": "RedBall_Moving",
+            "Trigger": {
+              "Type": "TriggerOnEveryTick",
+              "TickCount": 1
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "ball_timertick"
+            }
           }
         ]
       }

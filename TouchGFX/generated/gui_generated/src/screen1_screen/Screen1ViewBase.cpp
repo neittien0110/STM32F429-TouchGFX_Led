@@ -54,3 +54,11 @@ void Screen1ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
         buttonClicked();
     }
 }
+
+void Screen1ViewBase::handleTickEvent()
+{
+    //RedBall_Moving
+    //When every N tick call virtual function
+    //Call ball_timertick
+    ball_timertick();
+}
