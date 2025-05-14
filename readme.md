@@ -30,3 +30,6 @@
    - PG13 là GPIO_Output
    - PG14 là GPIO_Output
    > Xem lỗi [Không hiển thị được trên màn hình TouchScreen (màn hình trắng)](https://github.com/neittien0110/TouchGFX_Led/issues/1)
+9. Ở file __.ioc__, khai báo thêm 1 __Message Queue__, có tên __myQueue01__ để tryên thông điệp từ nút bấm __PA0__ tới giao diện.\
+   ![Thêm Queue Message](./assets/FreeRTOS_AddQueue.png)
+   > Lưu ý rằng: __FreeRTOS__ mặc định đã được kich hoạt để sử dụng __TouchGFX__ rồi.
