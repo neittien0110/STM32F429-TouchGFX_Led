@@ -81,3 +81,73 @@ Bộ kit STM32F429-DISC1 có tich hợp săn màn hình LCD cảm ứng chạm 2
     Đã xong tương tác theo hướng __Giao diện --> HAL__.\
     Tiếp theo sẽ là tương tác theo hướng __HAL --> Giao diện__.
 11. Trong STM32Cube, mở file __.ioc__, và thiết lập nút bấm USER màu xanh với chân pin __PA0__ là __GPIO_Input__
+12. Viết hàm sự kiện để khi __bấm nút trên USER trên board và hiển thị trên màn hình__: \
+      1. TouchGFX đã sinh ra hàm ảo __void ball_timertick()__ của nút bấm trên giao diện, khai báo trong file hoạt cảnh __Screen1ViewBase.cpp__. Không cần thao tác gì thêm.
+
+         ```C
+         void Screen1ViewBase::handleTickEvent()
+         {
+            //RedBall_Moving                 /// Tên gọi nhớ của sự kiện, trên phần mêm TouchGFX desinger
+            ball_timertick();                /// Gọi hàm ảo sự kiện
+         }
+         ```
+
+      2. Khai báo chồng hàm ảo của sự kiện, trong file __.hpp__ của file hoạt cảnh screen tương ứng
+
+         ```C
+         #include <stm32f4xx_hal.h>       /// Cần có để triệu gọi các hàm HAL
+         #include <cmsis_os2.h>           /// Cần có đề thao tác với MessageQueue
+         #include <math.h>                /// Cần có để Sử dụng các hàm toán học như sin, cos
+
+         extern "C" osMessageQueueId_t myQueue01Handle;   /// Được đặc tả trong main.c
+
+         class Screen1View : public Screen1ViewBase
+         {
+            public:
+               /**
+               * * Hàm sự kiện, được gọi ra sau mỗi tic-tok thời gian xảy ra ở đốm đỏ trên màn hình
+               */
+               void ball_timertick();
+            protected:
+               /**
+               * Biến đếm thời gian, để gui đổi thành tọa độ đốm đỏ.
+               */
+               uint32_t tickCount = 0;            
+         }
+         ```
+
+      3. Xây dựng hàm ảo đầy đủ của sự kiện, trong file __.cpp__ của file hoạt cảnh screen tương ứng
+
+         ```C
+         void Screen1View::ball_timertick()
+         {
+            /// tickCount tăng xoay vòng: 0, 2, 4, 8, 236, 238.
+            tickCount +=2;
+            tickCount = tickCount % 240;
+
+            /// Công thức tính tọa độ đốm tròn mới
+            float x = tickCount / 55.0f;
+            float y = sin(x) + sin(2*x) + sin(3*x) + 1;
+
+            /** Message lấy ra từ hàng đợi*/
+            uint8_t msg;
+
+            /// Nếu như có 1 message nào đó vẫn còn trong hàng đợi chỉ định...
+            if (osMessageQueueGetCount(myQueue01Handle) > 0) {
+               /// thì đọc message
+               osMessageQueueGet(myQueue01Handle, &msg, NULL, osWaitForever);
+               /// Nếu message đúng nội dung quan tâm
+               if (msg == 'X') {
+                  /// Di chuyển đốm đỏ đến tọa độ mới
+                  circle1.moveTo((int16_t)floor(x*55),200 -(int16_t)floor(y*50));
+                  /// Các thao tác đồ họa nói trên chỉ nhằm vẽ vào bộ đệm màn hình, trang đồ họa hậu trường.
+                  /// Cần phải gọi hàm invalidate để dữ liệu trong bộ đệm đó được đẩy ra màn hình chính.
+                  circle1.invalidate();
+               }
+            } else {
+               /// Nếu không bấm nút thì giao diện không thay đổi
+            }
+         }
+         ```
+
+Hết.
