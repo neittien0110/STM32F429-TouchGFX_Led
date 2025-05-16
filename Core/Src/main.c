@@ -24,7 +24,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "Components/ili9341/ili9341.h"
+#include "Components/ili9341/ili9341.h"			///Giao tiếp với màn hình LCD 2.2 touch
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -632,6 +632,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : PA0 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
   /*Configure GPIO pins : PD12 PD13 */
   GPIO_InitStruct.Pin = GPIO_PIN_12|GPIO_PIN_13;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -989,6 +995,12 @@ void StartDefaultTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
+	  /// Nếu nút bấm xanh PA0 được bấm thì ....
+	  if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0) == GPIO_PIN_SET) {
+		  /// Gửi thông điệp vào hàng đợi Queue.
+		  uint8_t data='X';
+		  osMessageQueuePut(myQueue01Handle, &data, 0, 10);
+	  }
     osDelay(100);
   }
   /* USER CODE END 5 */

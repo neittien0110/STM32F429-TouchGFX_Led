@@ -77,3 +77,7 @@ Bộ kit STM32F429-DISC1 có tich hợp săn màn hình LCD cảm ứng chạm 2
             HAL_GPIO_TogglePin(GPIOG, GPIO_PIN_13);
          }
          ```
+
+    Đã xong tương tác theo hướng __Giao diện --> HAL__.\
+    Tiếp theo sẽ là tương tác theo hướng __HAL --> Giao diện__.
+11. Trong STM32Cube, mở file __.ioc__, và thiết lập nút bấm USER màu xanh với chân pin __PA0__ là __GPIO_Input__
