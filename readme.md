@@ -1,5 +1,9 @@
 # TOUCHGFX VÀ ĐIỀU KHIỂN LED
 
+## Giới thiệu
+
+Bộ kit STM32F429-DISC1 có tich hợp săn màn hình LCD cảm ứng chạm 2.2inch, __ILI9341__ . Màn hình này có thể [mua rời ỏ đây](https://banlinhkien.com/man-hinh-lcd-tft-2.2-spi-ili9341-p13020870.html)
+
 ## Các bước lập trình
 
 1. Tạo dự án mới bằng TouchGFX và gen code
@@ -33,3 +37,43 @@
 9. Ở file __.ioc__, khai báo thêm 1 __Message Queue__, có tên __myQueue01__ để tryên thông điệp từ nút bấm __PA0__ tới giao diện.\
    ![Thêm Queue Message](./assets/FreeRTOS_AddQueue.png)
    > Lưu ý rằng: __FreeRTOS__ mặc định đã được kich hoạt để sử dụng __TouchGFX__ rồi.
+10. Viết hàm sự kiện để khi __bấm nút trên màn hình Touch thì bật đèn LD3 (PG13pin), LD4 (PG14 pin)__ \
+    Xem lại ảnh này để thấy cần viết hàm callback như thế nào:\
+    ![Object CallBack Functions](./assets/ObjectCallBack_Onclick.png)
+
+      1. TouchGFX đã sinh ra hàm ảo __void buttonClicked()__ của nút bấm trên giao diện, khai báo trong file hoạt cảnh __Screen1ViewBase.cpp__. Không cần thao tác gì thêm.
+
+         ```C
+         void Screen1ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
+         {
+            if (&src == &buttonWithLabel1)   /// Nếu đối tượng gây ra sự kiện là nút bấm có id = buttonWithLabel1
+            {
+               //LED_Control_Clicked         /// Tên gọi nhớ của sự kiện, trên phần mêm TouchGFX desinger
+               buttonClicked();              /// Gọi hàm ảo sự kiện
+            }
+         }
+         ```
+
+      2. Khai báo chồng hàm ảo của sự kiện, trong file __.hpp__ của file hoạt cảnh screen tương ứng
+
+         ```C
+         #include "stm32f4xx_hal.h"                   /// Cần có để triệu gọi các hàm HAL         
+         class Screen1View : public Screen1ViewBase
+         {
+            public:
+            /**
+             * * Hàm sự kiện, được gọi ra khi nút bấm Led Control trên màn hình được bấm
+            */
+            void buttonClicked();
+         }
+         ```
+
+      3. Xây dựng hàm ảo đầy đủ của sự kiện, trong file __.cpp__ của file hoạt cảnh screen tương ứng
+
+         ```C
+         void Screen1View::buttonClicked()
+         {
+            /// Đảo giá trị tắt/bật đèn led mặc định trên board.
+            HAL_GPIO_TogglePin(GPIOG, GPIO_PIN_13);
+         }
+         ```
