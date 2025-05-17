@@ -4,6 +4,10 @@
 
 Bộ kit STM32F429-DISC1 có tich hợp săn màn hình LCD cảm ứng chạm 2.2inch, __ILI9341__ . Màn hình này có thể [mua rời ỏ đây](https://banlinhkien.com/man-hinh-lcd-tft-2.2-spi-ili9341-p13020870.html)
 
+## Một số lỗi thường gặp 
+
+   [Xem ở đây](https://github.com/neittien0110/STM32F429-TouchGFX_Led/issues?q=is%3Aissue)
+
 ## Các bước lập trình
 
 1. Tạo dự án mới bằng TouchGFX và gen code
