@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ====================================================================
 # STM32CubeIDE & GCC Toolchain Build Outputs
 # ====================================================================
@@ -34,3 +35,11 @@ Release/
 
 # Loại bỏ các file log tạm thời của trình biên dịch Ruby/Make
 *.log
+=======
+logs
+Debug
+Drivers
+STM32CubeIDE/STM32F429I_DISCO_REV_D01.launch
+STM32CubeIDE/.settings/language.settings.xml
+STM32CubeIDE/.settings/stm32cubeide.project.prefs
+>>>>>>> 36eda1fcc4fe8a02a78bda2603ca51ed36603514

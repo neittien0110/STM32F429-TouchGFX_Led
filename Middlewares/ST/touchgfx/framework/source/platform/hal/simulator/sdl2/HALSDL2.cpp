@@ -1,8 +1,15 @@
 /******************************************************************************
+<<<<<<< HEAD
 * Copyright (c) 2018(-2026) STMicroelectronics.
 * All rights reserved.
 *
 * This file is part of the TouchGFX 4.26.1 distribution.
+=======
+* Copyright (c) 2018(-2025) STMicroelectronics.
+* All rights reserved.
+*
+* This file is part of the TouchGFX 4.25.0 distribution.
+>>>>>>> 36eda1fcc4fe8a02a78bda2603ca51ed36603514
 *
 * This software is licensed under terms that can be found in the LICENSE file in
 * the root directory of this software component.
@@ -39,7 +46,11 @@
 #ifdef __GNUC__
 #define sprintf_s snprintf
 #define fopen_s(pFile, filename, mode) (((*(pFile)) = fopen((filename), (mode))) == NULL)
+<<<<<<< HEAD
 #define freopen_s(pFile, filename, mode, pStream) (*(pFile)) = freopen((filename), (mode), (pStream))
+=======
+#define freopen_s(pFile, filename, mode, pStream) (((*(pFile)) = freopen((filename), (mode), (pStream))) == NULL)
+>>>>>>> 36eda1fcc4fe8a02a78bda2603ca51ed36603514
 #define localtime_s(timeinfo, rawtime) memcpy(timeinfo, localtime(rawtime), sizeof(tm))
 #define strncpy_s(dst, dstsize, src, srcsize) strncpy(dst, src, dstsize < srcsize ? dstsize : srcsize)
 #define wcstombs_s(result, dst, dstsize, src, srcsize) *result = wcstombs(dst, src, dstsize < srcsize ? dstsize : srcsize)
@@ -1483,6 +1494,12 @@ char** HALSDL2::getArgv(int* argc)
 
 void simulator_enable_stdio()
 {
+<<<<<<< HEAD
+=======
+#ifdef __GNUC__
+#define freopen_s(pFile, filename, mode, pStream) (((*(pFile)) = freopen((filename), (mode), (pStream))) == NULL)
+#endif
+>>>>>>> 36eda1fcc4fe8a02a78bda2603ca51ed36603514
     HALSDL2* hal = static_cast<HALSDL2*>(HAL::getInstance());
     if (hal->getConsoleVisible())
     {

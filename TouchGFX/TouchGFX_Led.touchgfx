@@ -8,12 +8,20 @@
           {
             "Type": "ButtonWithLabel",
             "Name": "buttonWithLabel1",
+<<<<<<< HEAD
             "Y": 118,
+=======
+            "Y": 215,
+>>>>>>> 36eda1fcc4fe8a02a78bda2603ca51ed36603514
             "Width": 240,
             "Height": 50,
             "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_rounded_pressed.png",
             "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_rounded_normal.png",
+<<<<<<< HEAD
             "TextId": "__SingleUse_1ACO",
+=======
+            "TextId": "__SingleUse_GR6F",
+>>>>>>> 36eda1fcc4fe8a02a78bda2603ca51ed36603514
             "ReleasedColor": {
               "Red": 255,
               "Green": 255,
@@ -30,6 +38,7 @@
           {
             "Type": "Circle",
             "Name": "circle1",
+<<<<<<< HEAD
             "X": 48,
             "Y": 16,
             "Width": 20,
@@ -42,6 +51,19 @@
             "Radius": 10.0,
             "EndAngle": 360.0,
             "CapPrecision": "Butt"
+=======
+            "X": 100,
+            "Width": 40,
+            "Height": 40,
+            "Color": {
+              "Red": 255
+            },
+            "CenterX": 20.0,
+            "CenterY": 20.0,
+            "Radius": 20.0,
+            "EndAngle": 360.0,
+            "CapPrecision": "Triangle"
+>>>>>>> 36eda1fcc4fe8a02a78bda2603ca51ed36603514
           }
         ],
         "Interactions": [
@@ -128,6 +150,11 @@
       "VectorFonts"
     ]
   },
+<<<<<<< HEAD
   "Version": "4.26.1",
   "CreatedBy": "4.26.1"
+=======
+  "Version": "4.25.0",
+  "CreatedBy": "4.25.0"
+>>>>>>> 36eda1fcc4fe8a02a78bda2603ca51ed36603514
 }
