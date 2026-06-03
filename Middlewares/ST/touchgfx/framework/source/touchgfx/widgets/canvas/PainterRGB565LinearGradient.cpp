@@ -1,15 +1,8 @@
 /******************************************************************************
-<<<<<<< HEAD
 * Copyright (c) 2018(-2026) STMicroelectronics.
 * All rights reserved.
 *
 * This file is part of the TouchGFX 4.26.1 distribution.
-=======
-* Copyright (c) 2018(-2025) STMicroelectronics.
-* All rights reserved.
-*
-* This file is part of the TouchGFX 4.25.0 distribution.
->>>>>>> 36eda1fcc4fe8a02a78bda2603ca51ed36603514
 *
 * This software is licensed under terms that can be found in the LICENSE file in
 * the root directory of this software component.
@@ -47,14 +40,9 @@ FORCE_INLINE_FUNCTION static uint16_t alphaBlend(uint16_t R, uint16_t G, uint16_
 
 static uint16_t random(int x, int y)
 {
-<<<<<<< HEAD
     int h = x * 374761393 + y * 668265263;
     h = (h ^ (h >> 13)) * 1274126177;
     return static_cast<uint16_t>(h ^ (h >> 16));
-=======
-    const long long int a = 15485863LL * (static_cast<long long int>(x) * static_cast<long long int>(y));
-    return (a * a * a % 2038074743LL) & 0xFFFF;
->>>>>>> 36eda1fcc4fe8a02a78bda2603ca51ed36603514
 }
 
 static uint16_t applyNoise(int x, int y, uint8_t r, uint8_t g, uint8_t b)

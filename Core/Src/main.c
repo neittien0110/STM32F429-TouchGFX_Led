@@ -24,11 +24,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-<<<<<<< HEAD
 #include "Components/ili9341/ili9341.h"
-=======
-#include "Components/ili9341/ili9341.h"			///Giao tiếp với màn hình LCD 2.2 touch
->>>>>>> 36eda1fcc4fe8a02a78bda2603ca51ed36603514
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -1005,11 +1001,7 @@ void StartDefaultTask(void *argument)
 		  uint8_t data='X';
 		  osMessageQueuePut(myQueue01Handle, &data, 0, 10);
 	  }
-<<<<<<< HEAD
 	  osDelay(100);
-=======
-    osDelay(100);
->>>>>>> 36eda1fcc4fe8a02a78bda2603ca51ed36603514
   }
   /* USER CODE END 5 */
 }
@@ -1047,12 +1039,7 @@ void Error_Handler(void)
 
   /* USER CODE END Error_Handler_Debug */
 }
-<<<<<<< HEAD
 #ifdef USE_FULL_ASSERT
-=======
-
-#ifdef  USE_FULL_ASSERT
->>>>>>> 36eda1fcc4fe8a02a78bda2603ca51ed36603514
 /**
   * @brief  Reports the name of the source file and the source line number
   *         where the assert_param error has occurred.

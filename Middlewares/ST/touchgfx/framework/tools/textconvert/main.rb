@@ -1,14 +1,7 @@
-<<<<<<< HEAD
 # Copyright (c) 2018(-2026) STMicroelectronics.
 # All rights reserved.
 #
 # This file is part of the TouchGFX 4.26.1 distribution.
-=======
-# Copyright (c) 2018(-2025) STMicroelectronics.
-# All rights reserved.
-#
-# This file is part of the TouchGFX 4.25.0 distribution.
->>>>>>> 36eda1fcc4fe8a02a78bda2603ca51ed36603514
 #
 # This software is licensed under terms that can be found in the LICENSE file in
 # the root directory of this software component.
@@ -84,7 +77,6 @@ UPGRADE
     remap_global = ARGV.include?("yes") || ARGV.include?("remap") ? "yes" : "no"
     autohint_setting = "default"
 
-<<<<<<< HEAD
     #check gpu2d
     require 'json'
 
@@ -105,12 +97,6 @@ UPGRADE
     data_format_a2 = ARGV.include?("A2") || isGPU2D ? "A2" : ""
     data_format_a4 = ARGV.include?("A4") || isGPU2D ? "A4" : ""
     data_format_a8 = ARGV.include?("A8") || isGPU2D ? "A8" : ""
-=======
-    data_format_a1 = ARGV.include?("A1") ? "A1" : ""
-    data_format_a2 = ARGV.include?("A2") ? "A2" : ""
-    data_format_a4 = ARGV.include?("A4") ? "A4" : ""
-    data_format_a8 = ARGV.include?("A8") ? "A8" : ""
->>>>>>> 36eda1fcc4fe8a02a78bda2603ca51ed36603514
 
     generate_binary_translations = ARGV.include?("binary_translations") ? "yes" : "no"
     generate_binary_fonts = ARGV.include?("binary_fonts") ? "yes" : "no"
@@ -129,10 +115,6 @@ UPGRADE
     copy_translations_to_ram = "no"
     compressed_font_cache_size = 4096
 
-<<<<<<< HEAD
-=======
-    require 'json'
->>>>>>> 36eda1fcc4fe8a02a78bda2603ca51ed36603514
 
     application_config = File.join($calling_path, "application.config")
     application_config_mod_time = nil
@@ -288,15 +270,11 @@ UPGRADE
       if File.exists?("#{@localization_output_path}/cache/compile_time.cache") && !self.missing_files && !force_run
         mod_time = [File.mtime(file_name), File.ctime(file_name)].max
         cache_mod_time = File.mtime("#{@localization_output_path}/cache/compile_time.cache")
-<<<<<<< HEAD
         # exit if cache is newer than input file and cache is also newer than application.config and target.config
         # No input changed since last run, so nothing to do...
         if mod_time < cache_mod_time &&
            (application_config_mod_time.nil? or application_config_mod_time < cache_mod_time) &&
            (target_config_mod_time.nil? or target_config_mod_time < cache_mod_time)
-=======
-        if mod_time < cache_mod_time && (application_config_mod_time.nil? or application_config_mod_time < cache_mod_time)
->>>>>>> 36eda1fcc4fe8a02a78bda2603ca51ed36603514
           exit
         end
       end

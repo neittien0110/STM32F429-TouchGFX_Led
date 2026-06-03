@@ -1,15 +1,8 @@
 /******************************************************************************
-<<<<<<< HEAD
 * Copyright (c) 2018(-2026) STMicroelectronics.
 * All rights reserved.
 *
 * This file is part of the TouchGFX 4.26.1 distribution.
-=======
-* Copyright (c) 2018(-2025) STMicroelectronics.
-* All rights reserved.
-*
-* This file is part of the TouchGFX 4.25.0 distribution.
->>>>>>> 36eda1fcc4fe8a02a78bda2603ca51ed36603514
 *
 * This software is licensed under terms that can be found in the LICENSE file in
 * the root directory of this software component.
@@ -33,10 +26,7 @@
 #include <touchgfx/hal/BlitOp.hpp>
 #include <touchgfx/hal/DMA.hpp>
 #include <touchgfx/hal/FrameBufferAllocator.hpp>
-<<<<<<< HEAD
 #include <touchgfx/hal/FrameBufferListener.hpp>
-=======
->>>>>>> 36eda1fcc4fe8a02a78bda2603ca51ed36603514
 #include <touchgfx/hal/Gestures.hpp>
 #include <touchgfx/hal/Types.hpp>
 #include <touchgfx/lcd/LCD.hpp>
@@ -70,10 +60,7 @@ public:
           mcuInstrumentation(0),
           buttonController(0),
           frameBufferAllocator(0),
-<<<<<<< HEAD
           frameBufferListener(0),
-=======
->>>>>>> 36eda1fcc4fe8a02a78bda2603ca51ed36603514
           gestures(),
           nativeDisplayOrientation(ORIENTATION_LANDSCAPE),
           taskDelayFunc(0),
@@ -784,15 +771,12 @@ public:
         frameBuffer1 = reinterpret_cast<uint16_t*>(doubleBuffer);
         USE_DOUBLE_BUFFERING = doubleBuffer != 0;
         setAnimationStorage(animationStorage);
-<<<<<<< HEAD
 
         // Notify frameBufferListener about initial framebuffer
         if (frameBufferListener)
         {
             frameBufferListener->setFrameBuffer((uint8_t*)getClientFrameBuffer(), HAL::FRAME_BUFFER_WIDTH);
         }
-=======
->>>>>>> 36eda1fcc4fe8a02a78bda2603ca51ed36603514
     }
 
     /**
@@ -959,7 +943,6 @@ public:
     }
 
     /**
-<<<<<<< HEAD
      * Sets a framebuffer listener. The listener is notified when the
      * client framebuffer changes.
      *
@@ -981,8 +964,6 @@ public:
     }
 
     /**
-=======
->>>>>>> 36eda1fcc4fe8a02a78bda2603ca51ed36603514
      * Gets the flash data reader. This method must be implemented in
      * subclasses that uses a FlashDataReader object.
      *
@@ -1440,16 +1421,10 @@ protected:
     DMA_Interface& dma;                          ///< A reference to the DMA interface.
     LCD& lcdRef;                                 ///< A reference to the LCD.
     TouchController& touchController;            ///< A reference to the touch controller.
-<<<<<<< HEAD
     MCUInstrumentation* mcuInstrumentation;      ///< A pointer to an optional MCU instrumentation.
     ButtonController* buttonController;          ///< A pointer to an optional ButtonController.
     FrameBufferAllocator* frameBufferAllocator;  ///< A pointer to an optional FrameBufferAllocator.
     FrameBufferListener* frameBufferListener;    ///< A pointer to an optionsl FrameBufferListener.
-=======
-    MCUInstrumentation* mcuInstrumentation;      ///< A reference to an optional MCU instrumentation.
-    ButtonController* buttonController;          ///< A reference to an optional ButtonController.
-    FrameBufferAllocator* frameBufferAllocator;  ///< A reference to an optional FrameBufferAllocator.
->>>>>>> 36eda1fcc4fe8a02a78bda2603ca51ed36603514
     static bool isDrawing;                       ///< True if currently in the process of rendering a screen.
     Gestures gestures;                           ///< Class for low-level interpretation of touch events.
     DisplayOrientation nativeDisplayOrientation; ///< Contains the native display orientation. If desired orientation is different, apply rotation.
